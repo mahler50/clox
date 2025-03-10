@@ -22,28 +22,36 @@ InterpretResult interpret(Chunk *chunk)
     return run();
 }
 
+// Push a value to the top of stack.
 void push(Value value)
 {
     *vm.stackTop = value;
     vm.stackTop++;
 }
 
+// Pop off a value from the top of stack.
 Value pop()
 {
     vm.stackTop--;
     return *vm.stackTop;
 }
 
+// Get the peek element's pointer, do not pop any value.
+Value *peek()
+{
+    return vm.stackTop - 1;
+}
+
 static InterpretResult run()
 {
 #define READ_BYTE() (*vm.ip++)
 #define READ_CONSTANT() (vm.chunk->constants.values[READ_BYTE()])
-#define BINARY_OP(op)     \
-    do                    \
-    {                     \
-        double b = pop(); \
-        double a = pop(); \
-        push(a op b);     \
+#define BINARY_OP(op)       \
+    do                      \
+    {                       \
+        double b = pop();   \
+        double *a = peek(); \
+        *a = *a op b;       \
     } while (false)
 
     for (;;)
@@ -84,7 +92,7 @@ static InterpretResult run()
             BINARY_OP(/);
             break;
         case OP_NEGATE:
-            push(-pop());
+            *peek() = -(*peek());
             break;
         case OP_RETURN:
         {
