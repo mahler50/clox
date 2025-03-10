@@ -42,20 +42,20 @@ int addConstant(Chunk *chunk, Value value)
     return chunk->constants.count - 1;
 }
 
-void initLines(Lines* lines)
+void initLines(Lines *lines)
 {
     lines->count = 0;
     lines->capacity = 0;
     lines->line = NULL;
 }
 
-void freeLines(Lines* lines)
+void freeLines(Lines *lines)
 {
     FREE_ARRAY(Line, lines->line, lines->capacity);
     initLines(lines);
 }
 
-void writeLines(Lines* lines, int line)
+void writeLines(Lines *lines, int line)
 {
     // If count + 1 is gretter than capacity, we resize the array.
     if (lines->count + 1 > lines->capacity)
@@ -72,12 +72,12 @@ void writeLines(Lines* lines, int line)
     {
         lines->line[lines->count].line = line;
         lines->count++;
-    } 
+    }
     lines->line[lines->count].offset++;
 }
 
 // Get chunk's line from chunk's offset.
-int getLine(Lines* lines, int offset)
+int getLine(Lines *lines, int offset)
 {
     for (int i = 0; i < lines->count; i++)
     {
