@@ -42,7 +42,7 @@ typedef enum
     TOKEN_RETURN,
     TOKEN_SUPER,
     TOKEN_THIS,
-    TOKEN_TURE,
+    TOKEN_TRUE,
     TOKEN_VAR,
     TOKEN_WHILE,
 

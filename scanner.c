@@ -281,7 +281,7 @@ static TokenType identifierType()
             case 'h':
                 return checkKeyword(2, 2, "is", TOKEN_THIS);
             case 'u':
-                return checkKeyword(2, 2, "re", TOKEN_TURE);
+                return checkKeyword(2, 2, "re", TOKEN_TRUE);
             }
         }
     case 'v':
