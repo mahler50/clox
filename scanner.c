@@ -261,6 +261,7 @@ static TokenType identifierType()
                 return checkKeyword(2, 1, "n", TOKEN_FUN);
             }
         }
+        break;
     case 'i':
         return checkKeyword(1, 1, "f", TOKEN_IF);
     case 'n':
@@ -280,10 +281,11 @@ static TokenType identifierType()
             {
             case 'h':
                 return checkKeyword(2, 2, "is", TOKEN_THIS);
-            case 'u':
-                return checkKeyword(2, 2, "re", TOKEN_TRUE);
+            case 'r':
+                return checkKeyword(2, 2, "ue", TOKEN_TRUE);
             }
         }
+        break;
     case 'v':
         return checkKeyword(1, 2, "ar", TOKEN_VAR);
     case 'w':
