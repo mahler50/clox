@@ -29,7 +29,7 @@ struct ObjString
 {
     Obj obj;
     int length;
-    char *chars;
+    char chars[]; // use flexible array
 };
 
 ObjString *copyString(const char *chars, int length);
