@@ -3,8 +3,9 @@
 ## How to run
 Make sure you have `gcc` installed.
 
-Run `run.sh` in your terminal:
+Run `make` in your terminal:
 ```sh
-chmod +x run.sh
-./run.sh
+make
 ```
+
+Or if you want to hack into this compiler, run `make debug` to generate a debuggable program.

@@ -1,2 +1,4 @@
 .vscode
 clox
+clox_debug
+*.o
